@@ -34,5 +34,5 @@ body:
     attributes:
       label: Additional information
       description: Let us know any other information specific to this question, for example relevant Compact URI (CURIE) etc.
-      validations:
+    validations:
       required: false
