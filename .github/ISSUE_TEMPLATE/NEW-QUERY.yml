@@ -1,0 +1,38 @@
+name: New Query
+description: Suggest a new Translator query
+title: "[New Query]: "
+assignees:
+  - khanspers
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thank you for letting us know of new questions and queries to be queried in the NCATS Translator tool.
+  - type: input
+    id: question
+    attributes:
+      label: Query question
+      description: What is the question you want to answer? For example, it could be "how is gene x related to disease y?".
+    validations:
+      required: true
+  - type: input
+    id: id
+    attributes:
+      label: Project ID
+      description: If this question is relevant for an existing core project, please specify the project ID.
+    validations:
+      required: false
+  - type: input
+    id: source
+    attributes:
+      label: Project source
+      description: What is the source of this project? For example iLabs or grant.
+    validations:
+      required: false    
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional information
+      description: Let us know any other information specific to this question, for example relevant Compact URI (CURIE) etc.
+      validations:
+      required: false
