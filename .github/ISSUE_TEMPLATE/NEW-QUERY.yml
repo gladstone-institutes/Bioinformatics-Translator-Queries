@@ -7,19 +7,19 @@ body:
   - type: markdown
     attributes:
       value: |
-        Thank you for letting us know of new questions and queries to be queried in the NCATS Translator tool.
+        Thank you for letting us know of questions and queries relevant to the NCATS Translator tool.
   - type: input
     id: question
     attributes:
       label: Query question
-      description: What is the question you want to answer? For example, it could be "how is gene x related to disease y?".
+      description: What is the question you want to answer? For example, "how is gene x related to disease y?".
     validations:
       required: true
   - type: input
     id: id
     attributes:
       label: Project ID
-      description: If this question is relevant for an existing core project, please specify the project ID.
+      description: If this question is relevant for an existing Bioinformatics Core project, please specify the project ID.
     validations:
       required: false
   - type: input
@@ -33,6 +33,6 @@ body:
     id: notes
     attributes:
       label: Additional information
-      description: Let us know any other information specific to this question, for example relevant Compact URI (CURIE) etc.
+      description: Let us know any other information specific to this question, for example relevant Compact URI (CURIE) for query nodes if you know them.
     validations:
       required: false
