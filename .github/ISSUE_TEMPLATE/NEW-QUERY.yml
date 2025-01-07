@@ -4,10 +4,6 @@ title: "[New Query]: "
 assignees:
   - khanspers
 body:
-  - type: markdown
-    attributes:
-      value: |
-        Thank you for letting us know of questions and queries relevant to the NCATS Translator tool.
   - type: input
     id: question
     attributes:
