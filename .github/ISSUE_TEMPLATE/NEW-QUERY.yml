@@ -33,6 +33,6 @@ body:
     id: notes
     attributes:
       label: Additional information
-      description: Let us know any other information specific to this question, for example relevant Compact URI (CURIE) for query nodes if you know them.
+      description: Let us know any other information specific to this question, for example relevant gene/chemical/drug identifiers.
     validations:
       required: false
