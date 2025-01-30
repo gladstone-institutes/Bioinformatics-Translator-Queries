@@ -19,15 +19,30 @@ open_count = 0
 label_counts = Counter()
 monthly_counts = Counter()
 
+# Ensure timezone awareness for comparison
+utc_now = datetime.datetime.now(datetime.timezone.utc)
+
 # Process issues
 for issue in issues:
+    # Print raw issue data for debugging
+    print(f"Processing Issue #{issue.number}")
+    print(f"Title: {issue.title}")
+    print(f"State: {issue.state}")
+    print(f"Created at: {issue.created_at} (Type: {type(issue.created_at)})")
+    print(f"Labels: {[label.name for label in issue.labels]}")
+    print(f"URL: {issue.html_url}")
+    print("-" * 50)
+
+    # Count open issues
     if issue.state == "open":
         open_count += 1
 
+    # Count labels
     for label in issue.labels:
         label_counts[label.name] += 1
 
-    if issue.created_at > datetime.datetime.now() - datetime.timedelta(days=365):
+    # Count issues by month (only for last 365 days)
+    if issue.created_at > utc_now - datetime.timedelta(days=365):
         month = issue.created_at.strftime("%Y-%m")
         monthly_counts[month] += 1
 
