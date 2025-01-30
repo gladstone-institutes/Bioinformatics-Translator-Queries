@@ -1,0 +1,35 @@
+name: Generate Issues Summary
+
+on:
+  workflow_dispatch: # Allows manual triggering of the workflow
+
+jobs:
+  generate-summary:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v3
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.x'
+
+    - name: Install dependencies
+      run: |
+        pip install PyGithub
+
+    - name: Generate Issues Summary
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        python generate_summary.py
+
+    - name: Commit and push changes
+      run: |
+        git config user.name "github-actions[bot]"
+        git config user.email "github-actions[bot]@users.noreply.github.com"
+        git add ISSUES_SUMMARY.md
+        git commit -m "Update issues summary [skip ci]" || echo "No changes to commit"
+        git push
