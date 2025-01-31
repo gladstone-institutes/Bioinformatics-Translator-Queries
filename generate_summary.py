@@ -46,17 +46,21 @@ for issue in issues:
         month = issue.created_at.strftime("%Y-%m")
         monthly_counts[month] += 1
 
-# Generate markdown content
-markdown_content = f"# GitHub Issues Summary\n\n"
-markdown_content += f"**Total Issues:** {issues.totalCount}\n"
-markdown_content += f"**Open Issues:** {open_count}\n"
-markdown_content += f"**Closed Issues:** {issues.totalCount - open_count}\n\n"
+# Generate markdown content with table format
+markdown_content = f"""# GitHub Issues Summary
 
-markdown_content += "## Labels\n"
+| Total Issues | Open Issues | Closed Issues |
+|-------------|------------|--------------|
+| {issues.totalCount} | {open_count} | {issues.totalCount - open_count} |
+
+## Labels
+"""
+
 for label, count in label_counts.items():
     markdown_content += f"- **{label}:** {count}\n"
 
 markdown_content += "\n## Issues by Month (Last Year)\n"
+
 for month, count in sorted(monthly_counts.items()):
     markdown_content += f"- **{month}:** {count}\n"
 
