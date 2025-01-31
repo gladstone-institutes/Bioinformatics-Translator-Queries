@@ -1,8 +1,8 @@
 # GitHub Issues Summary
 
-**Total Issues:** 4
-**Open Issues:** 4
-**Closed Issues:** 0
+| Total Issues | Open Issues | Closed Issues |
+|-------------|------------|--------------|
+| 4 | 4 | 0 |
 
 ## Labels
 - **iLabs:** 1
